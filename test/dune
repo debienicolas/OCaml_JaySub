@@ -1,0 +1,11 @@
+(test
+ (name store)
+ (libraries alcotest jaysub)
+ (modules store)
+ )
+
+(test
+ (name program)
+ (libraries alcotest jaysub)
+ (modules program)
+ )
