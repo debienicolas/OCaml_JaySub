@@ -15,7 +15,9 @@ let parse      = Parser.program Lexer.token (* Do not change *)
 let rec feval ((ids,procedures) : Ast.program) :  store = 
           Printf.printf "feval: %s\n" (Ast.show_program (ids,procedures));
   let init_store = create ids in
-  eval_procedure init_store (last_elem_proc procedures) procedures
+  let last_proc = last_elem_proc procedures in
+  Printf.printf "last_proc: %s\n" (Ast.show_procedure last_proc);
+  eval_procedure init_store last_proc procedures
   and last_elem_proc lst = 
       match lst with
       | [] -> failwith "Not a single procedure was given to the program"
