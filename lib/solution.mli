@@ -1,5 +1,5 @@
 type program
-type store
+open Store
 
 (** Parses a given buffer into an AST representation *)
 val parse             : Lexing.lexbuf -> program

@@ -18,3 +18,6 @@ val get_value : store -> identifier -> int
 val remove_pair: store -> identifier -> store
 
 val set_value : store -> identifier -> int -> store
+
+(** Converts the given global variable store to a string *)
+val string_of_store   : store   -> string

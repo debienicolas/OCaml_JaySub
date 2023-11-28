@@ -34,8 +34,16 @@ let set_value (s:store) (id:identifier) (value:int) : store =
   {ids = id::s'.ids; values = value::s'.values}
 
 
-  
-
+let string_of_store store =
+  let rec helper ids values acc =
+    match ids, values with
+    | [], [] -> acc
+    | id :: ids_tail, value :: values_tail ->
+        let pair_str = Printf.sprintf "%s -> %d; " id value in
+        helper ids_tail values_tail (acc ^ pair_str)
+    | _, _ -> failwith "Mismatched ids and values lengths in store"
+  in
+  helper store.ids store.values ""
 
 
 
